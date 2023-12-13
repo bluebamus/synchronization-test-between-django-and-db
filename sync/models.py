@@ -79,3 +79,25 @@ class StockOrder(models.Model):
 
     def __str__(self):
         return self.item.item_name
+
+
+class ItemCodeInOrder(models.Model):
+    item_name = models.CharField(max_length=20, blank=True, null=True)
+    item_full_code = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = "item_code_in_order"
+
+
+class FullInfoForStockOrder(models.Model):
+    item_name = models.CharField(max_length=20, blank=True, null=True)
+    item_full_code = models.TextField(blank=True, null=True)
+    username = models.CharField(max_length=150, blank=True, null=True)
+    last_name = models.CharField(max_length=150, blank=True, null=True)
+    first_name = models.CharField(max_length=150, blank=True, null=True)
+    email = models.CharField(max_length=254, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = "full_info_for_stock_order"
